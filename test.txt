@@ -1,0 +1,6 @@
+hello hello hello this
+is a test to see if
+my word count program works
+test test test
+word count count word
+program
