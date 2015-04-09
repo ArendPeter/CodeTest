@@ -23,7 +23,7 @@ public class Prob2{
 			}
 		}
 		//null case: where the node either all has a parent for children or no children
-		if(c.length <= 1){
+		if(c.length == 0 || (c.length == 1 && c[0]==from)){
 			ArrayList<GNode> temp = new <GNode>ArrayList();
 			temp.add(node);
 			myList.add(temp);

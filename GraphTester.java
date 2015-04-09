@@ -84,24 +84,26 @@ public class GraphTester{
 		Prob2 p2 = new Prob2();
 		
 		//test points
-		int[] testPoints = {1,0,3,0};
+		int[][] testPoints = {{0,1},{0},{3},{0}};
 		//simulate
 		for(int k = 0; k < graphs.length; k++){
-			System.out.println("______Info for graph "+k+"____");
-			System.out.println("-Walk Graph-");
-			ArrayList<TestNode> a = (ArrayList<TestNode>)p1.walkGraph(graphs[k][testPoints[k]]);
-			for(int i = 0; i < a.size(); i++){
-				System.out.println("\t"+a.get(i));
-			}
-			
-			System.out.println("-Paths-");
-			ArrayList<ArrayList<TestNode>> a2 = 
-				(ArrayList<ArrayList<TestNode>>)(p2.paths(graphs[k][testPoints[k]]));
-			for(int i = 0; i < a2.size(); i++){
-				for(int j = 0; j < a2.get(i).size(); j++){
-					System.out.print(a2.get(i).get(j)+" ");
+			for(int p = 0; p < testPoints[k].length; p++){
+				System.out.println("______Info for graph "+k+" testing point "+testPoints[k][p]+"____");
+				System.out.println("-Walk Graph-");
+				ArrayList<TestNode> a = (ArrayList<TestNode>)p1.walkGraph(graphs[k][testPoints[k][p]]);
+				for(int i = 0; i < a.size(); i++){
+					System.out.println("\t"+a.get(i));
 				}
-				System.out.print("\n");
+				
+				System.out.println("-Paths-");
+				ArrayList<ArrayList<TestNode>> a2 = 
+					(ArrayList<ArrayList<TestNode>>)(p2.paths(graphs[k][testPoints[k][p]]));
+				for(int i = 0; i < a2.size(); i++){
+					for(int j = 0; j < a2.get(i).size(); j++){
+						System.out.print(a2.get(i).get(j)+" ");
+					}
+					System.out.print("\n");
+				}
 			}
 		}
 	}
